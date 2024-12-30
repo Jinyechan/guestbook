@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 전체 페이지 스타일 */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://img.freepik.com/free-photo/minimal-amazing-interior-design_23-2150534585.jpg?t=st=1735537831~exp=1735541431~hmac=5e07abf1cef8473ef50338e90c4617eec87bd56cd80a7b97b3f40ab8a2128a23&w=826'); /* 배경 이미지 추가 */
+            background-size: cover; /* 배경 이미지를 화면 크기에 맞게 조정 */
+            background-position: center; /* 배경 이미지 중앙 정렬 */
+            color: #4f4f4f;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-top: 40px;
+            color: #6d5130;
+            /* 갈색 베이지 느낌의 색상으로 변경 */
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 이미지 스타일 */
+        .header-image {
+            width: 40%;
+            /* 이미지 크기 비율을 50%로 설정 */
+            max-width: 500px;
+            /* 최대 너비를 500px로 설정 */
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 폼 스타일 */
+        form {
+            margin-top: 30px;
+            background: #d7c2a1;
+            /* 갈색 베이지 톤 배경으로 변경 */
+            padding: 30px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        textarea {
+            width: 90%;
+            /* 너비를 90%로 설정하여 균형을 맞춤 */
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #b89d6b;
+            /* 갈색 베이지 색으로 테두리 변경 */
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #f0e5d8;
+            /* 밝은 갈색 베이지 배경 */
+            color: #4f4f4f;
+            /* 텍스트 색상을 부드럽게 변경 */
+            box-sizing: border-box;
+            /* padding 포함하여 크기 계산 */
+        }
+
+        /* 텍스트 영역 크기 맞추기 */
+        textarea {
+            height: 45px;
+            /* 텍스트 영역 높이를 설정하여 입력란 크기 맞춤 */
+            resize: vertical;
+            /* 세로 크기만 조절 가능하도록 설정 */
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #a67c4b;
+            /* 따뜻한 갈색으로 포커스 색상 변경 */
+            box-shadow: 0 0 5px rgba(166, 124, 75, 0.6);
+        }
+
+        button {
+            background-color: #a67c4b;
+            /* 갈색 베이지 색 */
+            color: white;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #8f5e38;
+            /* 버튼에 마우스를 올렸을 때 색상 변경 */
+        }
+
+        /* 방명록 리스트 스타일 */
+        #guestbooks {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #f0e5d8;
+            /* 방명록 배경을 밝은 갈색 베이지로 설정 */
+            border-radius: 8px;
+            width: 80%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .guestbook {
+            background: #f0e5d8;
+            /* 밝은 갈색 베이지 배경 */
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            color: #4f4f4f;
+        }
+
+        .guestbook h3 {
+            font-size: 1.4rem;
+            color: #a67c4b;
+            /* 따뜻한 갈색으로 변경 */
+            margin-bottom: 10px;
+        }
+
+        .guestbook p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .guestbook small {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .guestbook a {
+            color: #a67c4b;
+            /* 링크 색상 변경 */
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .guestbook a:hover {
+            text-decoration: underline;
+        }
+
+        @font-face {
+            font-family: 'MyCustomFont'; /* 원하는 폰트 이름 */
+            src: url('Hakgyoansim Badasseugi TTF L.ttf');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* 웹 페이지에서 폰트 사용 */
+        body {
+            font-family: 'MyCustomFont', sans-serif; /* 불러온 폰트 사용 */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>방명록</h1>
+
+    <!-- 페이지 상단에 이미지 추가 -->
+    <img src="https://image.idus.com/image/files/a7766ddd64c246569ac56b14f7316e16.jpg" alt="방명록 이미지"
+        class="header-image">
+
+    <form method="POST" action="/">
+        <input type="text" name="title" placeholder="이름" required><br>
+        <textarea name="content" placeholder="메시지" required rows="5"></textarea><br>
+        <button type="submit">등록</button>
+    </form>
+
+    <div id="guestbooks">
+        {% for guestbook in guestbooks %}
+        <div class="guestbook {{ guestbook.category }}">
+            <h3>{{ guestbook.title }}</h3>
+            <p>{{ guestbook.content }}</p>
+            <small>작성일: {{ guestbook.regdate }}</small>
+            <a href="/delete/{{ guestbook.id }}">삭제</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
